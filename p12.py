@@ -10,7 +10,7 @@ def main():
     #print(f"Ex p1: {run('example.txt')}")
     #print(f"Ex p2: {run('example.txt',2)}")
     #print(f"In p1: {run('input.txt')}")
-    print(f"In p2: {run('12.in', 2)}")
+    print(f"In p2: {run('p12.in.txt', 2)}")
     print("__")
 
 
