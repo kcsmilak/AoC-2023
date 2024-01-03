@@ -181,5 +181,3 @@ def run(filename, puzzlePart=1):
         result = lowPulses * highPulses
     return result
 
-
-main()

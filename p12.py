@@ -233,8 +233,6 @@ def run(filename, puzzlePart=1):
     return result
 
 
-main()
-
 
 """
 

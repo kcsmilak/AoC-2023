@@ -80,4 +80,3 @@ def run(filename, puzzlePart = 1):
     
     return len(plots)
 
-main()

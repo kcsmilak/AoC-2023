@@ -254,11 +254,3 @@ def run(filename, modifier=False):
         return -1 
 
 
-
-#if (EXAMPLE and PART1): print(f"Ex p1: {run('example.txt')}")
-#if (EXAMPLE and PART2): print(f"Ex p2: {run('example.txt', True)}")
-
-if (INPUT and PART1): print(f"In p1: {run('05.in')}")
-if (INPUT and PART2): print(f"In p2: {run('05.in', True)}")
-
-print("__")

@@ -1,7 +1,12 @@
 # P1: 62 - 52055
 # P2: 952408144115 - ? 
 
-DEBUG = True
+P1E = 62
+P1I = 52055
+P2E = 952408144115
+P2I = None
+
+DEBUG = False
 
 DIRECTIONS = "NESW"
 MOVEMENTS = "URDL"
@@ -360,4 +365,4 @@ def polygon_area(polygon):
 
 
 
-main()
+
