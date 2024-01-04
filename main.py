@@ -1,20 +1,27 @@
-import importlib
-
-P1E, P1I, P2E, P2I = None, None, None, None
-
-
-FINISHED_MISSING_PUZZLES = [2,3,4,6,7,8,9,10,11,14,15,16,25]
-
-CONFIRMED_PUZZLES = [13, 25]
-WRONG_ANSWER_PUZZLES = [1, 17, 18, 19, 21, 22, 24]
-TOO_LONG_PUZZLES = [12, 20, 23]
-BROKEN_PUZZLES = [5]
+############################################################
 
 PUZZLES = [17]
 
 PARTS = [1, 2]
+
 INPUTS = ["ex", "in"]
 
+CATCH_EXCEPTIONS = False
+
+############################################################
+
+FINISHED_MISSING_PUZZLES = [1,2,3,4,6,7,8,9,10,11,14,15,16]
+
+COMPLETED_PUZZLES = [13, 25]
+WRONG_ANSWER_PUZZLES = [17, 18, 19, 21, 22, 24]
+TOO_LONG_PUZZLES = [12, 20, 23]
+BROKEN_PUZZLES = [5]
+
+P1E, P1I, P2E, P2I = None, None, None, None
+
+############################################################
+
+import importlib
 registry = {}
 for i in PUZZLES:
     registry[i] = importlib.import_module(f"p{i:02}")
@@ -49,7 +56,8 @@ def main():
                         f"puzzle=[{puzzle}] part=[{part}] input=[{input}] -> [{result}] expected [{expected}]"
                     )
                 except Exception as e:
-                    print(f"{puzzle:02}.{input}.{part} : {e}")
+                    if not CATCH_EXCEPTIONS: raise e
+                    print(f"p{puzzle:02}.{input}.{part} : {e}")
     
                 #assert(result == expected)
     
