@@ -1,7 +1,8 @@
 # P1: ? - ?
 # P2: ? - ?
+P1E, P1I, P2E, P2I = 64, 3641, None, None
 
-DEBUG = True
+DEBUG = False
 
 def main():
     #print(f"Ex p1: {run('test.txt')}")
@@ -67,14 +68,14 @@ def run(filename, puzzlePart = 1):
                     newPlots[(newX,newY)] = True
 
 
-        printMap(map, start, plots)
+        #printMap(map, start, plots)
         plotList = list(plots.keys())
         plotList.sort()
         #print(f"plotList = {plotList}")
         plotHashString = ''.join([f"{x},{y}" for x,y in plotList])
         
             
-        print(hash(plotHashString))
+        #print(hash(plotHashString))
 
         plots = newPlots                    
     

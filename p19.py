@@ -1,7 +1,9 @@
 # P1: 19114 - 446935
 # P2: ? - ?
 
-DEBUG = True
+P1E, P1I, P2E, P2I = 19114, 446935, 167409079868000, None
+
+DEBUG = False
 
 def main():
     #print(f"Ex p1: {run('test.txt')}")
@@ -127,12 +129,12 @@ def run(filename, puzzlePart = 1):
                 tree[destination].append(key)
         tree["in"] = "ROOT"
 
-        print(tree)
+        if DEBUG: print(tree)
         for key in workflows:
             for test in workflows[key]:
 
                 if test[-1] == 'A':
-                    print(f"Starting from key={key} test={test}")
+                    if DEBUG: print(f"Starting from key={key} test={test}")
                     #walk up the tree from key
                     previous = None
                     while True:
@@ -154,13 +156,13 @@ def run(filename, puzzlePart = 1):
                             
 
                         
-                        print(f" {key:5} {' , '.join(potentialTests):40}", end="")
+                        if DEBUG: print(f" {key:5} {' , '.join(potentialTests):40}", end="")
                         if key == "in":
-                            print(f"-> DONE")
+                            if DEBUG: print(f"-> DONE")
                             break
                         
                         parent = tree[key][0]
-                        print(f"-> {parent}")
+                        if DEBUG: print(f"-> {parent}")
                         previous = key
                         key = parent
  

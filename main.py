@@ -1,24 +1,56 @@
+import importlib
+
+P1E, P1I, P2E, P2I = None, None, None, None
 
 
-import p01, p05, p12, p17, p18, p19, p20, p21, p23, p24
+FINISHED_MISSING_PUZZLES = [2,3,4,6,7,8,9,10,11,14,15,16,25]
 
+CONFIRMED_PUZZLES = [13, 25]
+WRONG_ANSWER_PUZZLES = [1, 17, 18, 19, 21, 22, 24]
+TOO_LONG_PUZZLES = [12, 20, 23]
+BROKEN_PUZZLES = [5]
+
+PUZZLES = [17]
+
+PARTS = [1, 2]
 INPUTS = ["ex", "in"]
 
+registry = {}
+for i in PUZZLES:
+    registry[i] = importlib.import_module(f"p{i:02}")
+
+def expectedValue(registry, puzzle, part, input):
+    if part == 1:
+        if input == "ex":
+            return registry[puzzle].P1E
+        else:
+            return registry[puzzle].P1I
+    else:
+        if input == "ex":
+            return registry[puzzle].P2E
+        else:
+            return registry[puzzle].P2I
+
 def bf(puzzle, input):
-    return f"p{puzzle:02}.{INPUTS[input]}.txt"
+    return f"p{puzzle:02}.{input}.txt"
 
-#p05.run('p05.in.txt')
-#p12.run('p12.in.txt')
-
-#p17.run('p17.ex.txt')
-
-puzzle, part, input = 18, 1, 0
-expected = p18.P1E
-result = p18.run(bf(puzzle,input),part)
-
-print(f"puzzle=[{puzzle}] part=[{part}] input=[{input}] -> {result} expected {expected}") 
-
-assert(result == expected)
-
-
-print("-=-")
+def main():
+    for puzzle in PUZZLES:
+        print(f"\n-[ Puzzle {puzzle} ]-------------\n")
+        for part in PARTS:
+            for input in INPUTS:
+                filename = bf(puzzle, input)
+    
+                expected = expectedValue(registry, puzzle, part, input)
+    
+                try:
+                    result = registry[puzzle].run(filename, part)
+                    print(
+                        f"puzzle=[{puzzle}] part=[{part}] input=[{input}] -> [{result}] expected [{expected}]"
+                    )
+                except Exception as e:
+                    print(f"{puzzle:02}.{input}.{part} : {e}")
+    
+                #assert(result == expected)
+    
+main()

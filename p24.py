@@ -1,5 +1,6 @@
 # P1: 2 - =17776
 # P2: ? - ?
+P1E, P1I, P2E, P2I = 2, 17776, 47, None
 
 import aoc_tools as aoc
 DEBUG = False

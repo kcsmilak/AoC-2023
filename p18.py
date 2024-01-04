@@ -184,7 +184,7 @@ def run(filename, puzzlePart = 1):
         result = countSymbol(map, '#')
     elif puzzlePart == 2:
 
-        print("PART 2")
+        #print("PART 2")
 
         points = []
         rowTransitions = {}
@@ -234,14 +234,14 @@ def run(filename, puzzlePart = 1):
         # adjust all points into right quadrant
         newPoints = []
         for p in points:
-            print(p)
+            #print(p)
             px = p[X] + abs(minX) + 1
             py = p[Y] + abs(minY) + 1
         newPoints.append((px,py))
 
         
         #points = newPoints
-        print(points)
+        #print(points)
         for i, point in enumerate(points):
 
             pointA = points[i]
@@ -249,12 +249,12 @@ def run(filename, puzzlePart = 1):
 
             # get the determinate of pointA and pointB
             det = abs((pointA[X] * pointB[Y]) - (pointB[X] * pointA[Y]))
-            print(f"pointA = {pointA}, pointB = {pointB} det = {det}")
+            #print(f"pointA = {pointA}, pointB = {pointB} det = {det}")
 
             result += det 
             temp += det // 2
             
-        print(temp)
+        #print(temp)
 
         result = Area(points)
     return result

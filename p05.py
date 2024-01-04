@@ -1,6 +1,8 @@
 # P1: ? - ?
 # P2: 1561682361 - ?
 
+P1E, P1I, P2E, P2I = 35, 227653707, 46, None
+
 DEBUG = False
 DEBUG2 = False
 DEBUG3 = False
@@ -73,11 +75,11 @@ def fillRange(map1, max):
 def mergeMaps(leftMap, rightMap):
     sortMap(leftMap)
     fillRange(leftMap, 100)
-    print(leftMap)
+    #print(leftMap)
     
     sortMap(rightMap)
     fillRange(rightMap, 100)
-    print(rightMap)
+    #print(rightMap)
 
     mergedMap = []
 
@@ -91,7 +93,7 @@ def mergeMaps(leftMap, rightMap):
         leftRange = leftMap[leftMapIndex]
         rightRange = rightMap[rightMapIndex]
 
-        print(f"working on {leftRange} and {rightRange}")
+        #print(f"working on {leftRange} and {rightRange}")
 
         leftModifier = leftRange[1] - leftRange[0]
         rightModifier = rightRange[1] - rightRange[0]
@@ -104,15 +106,15 @@ def mergeMaps(leftMap, rightMap):
         rightEnd = rightRange[1] + rightRange[2] - 1
 
         if leftEnd == rightEnd:
-            print("perfect match")
+            #print("perfect match")
             leftMapIndex += 1
             rightMapIndex += 1
         elif leftEnd < rightEnd:
-            print(f"working left")
+            #print(f"working left")
             leftMapIndex += 1
             pass
         else:
-            print(f"splitting left with right at {rightEnd}")
+            #print(f"splitting left with right at {rightEnd}")
 
             rightMapIndex += 1
             

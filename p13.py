@@ -1,6 +1,8 @@
 # P1: 405 - 37718
 # P2: x29366 (low) - 36810 too low -- 27901 too low -- 28840? --> 40995
 
+P1E, P1I, P2E, P2I = 405, 37718, 400, 40995
+
 DEBUG1 = False
 
 def main():
@@ -46,7 +48,7 @@ def findMatchs(hashList, map = None, firstResult = -1):
                 break
             offset += 1
         if match:
-            print(f"--> Match at {i+1} with size {offset} and first {firstResult}")
+            #print(f"--> Match at {i+1} with size {offset} and first {firstResult}")
             matches.append(i+1)
             #matchi= i+1
             #if (-1 == firstResult): return matchi
@@ -152,7 +154,7 @@ def run(filename, puzzlePart = 1):
 
             #print()
             #print(mapString(map))
-            print(f"first match {firstResult}")
+            #print(f"first match {firstResult}")
     
             done = False
             for y, row in enumerate(map):
@@ -161,7 +163,8 @@ def run(filename, puzzlePart = 1):
                     if done: break
                 
                     if (x,y) == (11,8):
-                        print(mapString(map))
+                        pass
+                        #print(mapString(map))
                 
                     if map[y][x] == '.':
                         map[y][x] = '#'
@@ -173,14 +176,14 @@ def run(filename, puzzlePart = 1):
                         #print(secondResult)
                         if len(secondResult) != 0:
                             
-                            print(f"found #: {secondResult} using {x},{y}")
+                            #print(f"found #: {secondResult} using {x},{y}")
                             #print(mapString(map))
                             
                             for r in secondResult:
                                 
                                 if r != firstResult: 
                                     result += r
-                                    print(f"addding {r}")
+                                    #print(f"addding {r}")
                             #result += secondResult[0]
                                     done = True
                         map[y][x] = '.'
@@ -189,12 +192,12 @@ def run(filename, puzzlePart = 1):
                         secondResult = mapMirror(map, firstResult)
                         #print(secondResult)
                         if secondResult != -1 :
-                            print(f"found .: {secondResult} using {x},{y}")
+                            #print(f"found .: {secondResult} using {x},{y}")
                             #print(mapString(map))
                             for r in secondResult:
                                 if r != firstResult: 
                                     result += r
-                                    print(f"addding {r}")
+                                    #print(f"addding {r}")
                                     done = True
                         map[y][x] = '#'
             #if not done:
@@ -204,4 +207,3 @@ def run(filename, puzzlePart = 1):
             
     return result
 
-main()

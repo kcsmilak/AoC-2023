@@ -4,6 +4,7 @@
 DEBUG = False
 lineTest = -1
 
+P1E, P1I, P2E, P2I = 21, 6488, 525152, 815364548481
 
 
 def main():
@@ -76,9 +77,9 @@ def placeLeaks2(line, leaks):
 
     leakSum = sum(leaks)
     minSpace = len(leaks) - 1 + leakSum
-    print(f"minSpace: {minSpace}")  # optimization for later
+    #print(f"minSpace: {minSpace}")  # optimization for later
 
-    print(f"line: {line} leaks: {leaks} minSpace: {minSpace}")
+    #print(f"line: {line} leaks: {leaks} minSpace: {minSpace}")
 
     for i in range(len(line)):
 
@@ -86,7 +87,7 @@ def placeLeaks2(line, leaks):
 
         space = spaceAhead(line, i)
         remainingLeaks = leaks[offset + 1:]
-        print(f"space={space}  len={len(line)} offset = {offset}")
+        #print(f"space={space}  len={len(line)} offset = {offset}")
 
         remainingLine = line[i + 2:]
         placeLeaks(remainingLine, remainingLeaks)
@@ -197,7 +198,7 @@ def getArrangementsCount(line, leaks):
 
     arrangements = placeLeaks(line, leaks)
 
-    print(f"{line:20} {leaks} -> {arrangements}")
+    #print(f"{line:20} {leaks} -> {arrangements}")
     return arrangements
 
 

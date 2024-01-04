@@ -1,5 +1,6 @@
 # P1: ? - ?
 # P2: ? - ?
+P1E, P1I, P2E, P2I = 5, 434, 7, None
 
 import aoc_tools as aoc
 DEBUG = False
@@ -166,8 +167,8 @@ def run(filename, puzzlePart = 1):
     removedBricks = {}
 
     for k in range(z_max-1, 0, -1):
-        print(f"\n--[ Layer {k} ]--\n")
-        printGrid(cube[k])
+        if DEBUG: print(f"\n--[ Layer {k} ]--\n")
+        if DEBUG: printGrid(cube[k])
 
         # get the set of bricks in the relevant planes and if they are connected
         plane_bricks = {}
@@ -251,11 +252,11 @@ def run(filename, puzzlePart = 1):
                 if puzzlePart == 2:
                     if len(state) > len(maxRemoveBricks):
                         maxRemoveBricks = state.copy()
-                        print(f"--> maxRemoveBricks: {len(maxRemoveBricks)} {maxRemoveBricks} ")
+                        #print(f"--> maxRemoveBricks: {len(maxRemoveBricks)} {maxRemoveBricks} ")
                         continue
                 else:
                     removedBricks[state[0]] = True
-                    print(f"--> removedBricks: {state[0]}")
+                    #print(f"--> removedBricks: {state[0]}")
                     continue
 
 
@@ -275,6 +276,6 @@ def run(filename, puzzlePart = 1):
 
 
 
-    print(removedBricks)
+    #print(removedBricks)
     return len(removedBricks)
 

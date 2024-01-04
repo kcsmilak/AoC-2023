@@ -1,7 +1,8 @@
-import tools
+import aoc_tools
 import heapq
 
 # 1213 is too low, 1223 is too high --> 1215 (50s)
+P1E, P1I, P2E, P2I = 102, 1013, 71, 1215
 
 def gridCost(grid, u, v):
     return int(grid[v[1]][v[0]])
@@ -96,16 +97,16 @@ def run(filename, puzzlePart=1):
     if puzzlePart == 1:
         for y in range(len(map)):
             for x in range(len(map[0])):
-                for d in range(len(tools.DIRECTIONS)):
+                for d in range(len(aoc_tools.DIRECTIONS)):
                     for s in range(0,3):
                         key = (x,y,d,s)
                         states[key] = {}
     
                         # create the output states
-                        for nd in range(len(tools.DIRECTIONS)):
+                        for nd in range(len(aoc_tools.DIRECTIONS)):
     
                             # check if location is on the map
-                            offset = tools.OFFSETS[nd]
+                            offset = aoc_tools.OFFSETS[nd]
                             v = x+offset[0], y+offset[1]
                             if v[0]<0 or v[0]>=len(map[0]) or v[1]<0 or v[1]>=len(map):
                                 continue # out of range
@@ -130,16 +131,16 @@ def run(filename, puzzlePart=1):
     else:
         for y in range(len(map)):
             for x in range(len(map[0])):
-                for d in range(len(tools.DIRECTIONS)):
+                for d in range(len(aoc_tools.DIRECTIONS)):
                     for s in range(0,10):
                         key = (x,y,d,s)
                         states[key] = {}
                         finished = False
                         # create the output states
-                        for nd in range(len(tools.DIRECTIONS)):
+                        for nd in range(len(aoc_tools.DIRECTIONS)):
     
                             # check if location is on the map
-                            offset = tools.OFFSETS[nd]
+                            offset = aoc_tools.OFFSETS[nd]
                             v = x+offset[0], y+offset[1]
                             if v[0]<0 or v[0]>=len(map[0]) or v[1]<0 or v[1]>=len(map):
                                 continue # out of range

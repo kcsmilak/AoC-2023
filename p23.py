@@ -1,5 +1,6 @@
 # P1: ? - ?
 # P2: ? - ?
+P1E, P1I, P2E, P2I = 94, 2246, 154, None
 
 import aoc_tools as aoc
 DEBUG = False
@@ -48,7 +49,7 @@ def run(filename, puzzlePart = 1):
         if position == end:
             if len(path) > len(longestPath):
                 longestPath = path.copy()
-                print(f"longestPath: {len(longestPath)-1}")
+                if DEBUG: print(f"longestPath: {len(longestPath)-1}")
             continue
 
 
