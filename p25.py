@@ -21,7 +21,7 @@ def main():
     #print(f"Ex p1: {run('example.txt')}")
     #print(f"Ex p2: {run('example.txt', 2)}")
     #print(f"In p1: {run('example.txt',2)}")
-    print(f"In p2: {run('input.txt',2)}")
+    print(f"In p2: {run('p25.in.txt',2)}")
     print("__")
 
 
@@ -270,3 +270,6 @@ def reduceBags(currentBags):
                 bags[len(bags)-1][component] = True
 
     return bags
+
+if __name__ == '__main__':
+    main()
