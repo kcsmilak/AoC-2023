@@ -149,7 +149,7 @@ def run(filename, puzzlePart=1):
                                 # add a step and move forward
                                 ns = s+1
     
-                                if ns == 10:
+                                if ns >= 10:
                                     continue
                                 pass
                             elif nd == (d+2)%4:
@@ -173,10 +173,29 @@ def run(filename, puzzlePart=1):
     
     source = (0,0,1,0)
     path, cost = DijkstraP(states, source, destination)
+
+    cost = 0
+    pathToPrint = {}
+    for i in range(len(path)):
+        pathToPrint[(path[i][0],path[i][1])] = path[i][2]
+        if i > 0:
+            cost += int(map[path[i][1]][path[i][0]])
+    print(pathToPrint)
+    aoc_tools.printMap(map,pathToPrint)
     print(f"Cost: {cost}   PathLength: {len(path)}")
-    
+
     source = (0,0,2,0)
     path, cost = DijkstraP(states, source, destination)
+
+    cost = 0
+    pathToPrint = {}
+    for i in range(len(path)):
+        pathToPrint[(path[i][0],path[i][1])] = path[i][2]
+        if i > 0:
+            cost += int(map[path[i][1]][path[i][0]])
+    print(pathToPrint)
+    aoc_tools.printMap(map,pathToPrint)
+    
     print(f"Cost: {cost}   PathLength: {len(path)}")
 
 

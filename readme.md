@@ -1,4 +1,21 @@
 Games.....
+
+<h1>Summary</h1>
+<pre>
+05: Reverse Map
+12: Unrolled springs
+17> Pathfind min heat. Seems very close
+18: Painted lagoon?
+19= Math...
+20: Pulse propagation
+21: Repeating garden plots conways game
+22= Remove sand slab
+23: Longest route 
+24: Perfect snowball
+    
+</pre>
+
+
 <pre>
 ----------------------------------------------------------------------
 -- Day 1: Trebuchet?!                                           [*][*]

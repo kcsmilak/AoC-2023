@@ -18,13 +18,17 @@ def buildMapFromFile(filename):
         grid.append(row)
     return grid
 
-def printMap(map):
+def printMap(map, path = None):
     print()
     count = 0
-    for row in map:
-        print(''.join(row))
-        for c in row:
+    for y,row in enumerate(map):
+        for x,c in enumerate(row):
+            if path is not None and (x,y) in path:
+                print(ARROWS_PLAIN[path[(x,y)]], end="")
+            else:
+                print(c, end="")
             if c == '#': count+=1
+        print()
     print(f"count = {count}")
 
 def inRange(map, pos):

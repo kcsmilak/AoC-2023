@@ -5,6 +5,7 @@
 DEBUG = False
 SIGNAME = ["low", "high"]
 
+
 P1E, P1I, P2E, P2I = 11687500, 817896682, None, None
 
 def main():
@@ -20,6 +21,8 @@ def main():
 
 
 def run(filename, puzzlePart=1):
+
+    if puzzlePart == 2 and filename == "p20.ex.txt": return None
 
     result = 0
 
